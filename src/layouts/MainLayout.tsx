@@ -4,6 +4,7 @@ import { Home, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SidebarItem from "@/components/layout/SidebarItem";
 import React from "react";
+import Header from "@/components/layout/Header";
 
 export default React.memo(function MainLayout() {
   const [isOpen, setIsOpen] = useState(true);
@@ -37,8 +38,11 @@ export default React.memo(function MainLayout() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 bg-gray-100 dark:bg-background">
-        <Outlet />
+      <main className="flex-1 flex flex-col bg-gray-100 dark:bg-background">
+        <Header />
+        <div className="flex-1 p-6">
+          <Outlet />
+        </div>
       </main>
     </div>
   );
