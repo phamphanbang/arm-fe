@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router";
-import { Home, Info } from "lucide-react";
+import { Home, Info, Spool } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SidebarItem from "@/components/layout/SidebarItem";
 import React from "react";
@@ -34,6 +34,7 @@ export default React.memo(function MainLayout() {
         <nav className="flex flex-col gap-2 p-2">
           <SidebarItem to="/" label="Home" icon={Home} isOpen={isOpen} />
           <SidebarItem to="/about" label="About" icon={Info} isOpen={isOpen} />
+          <SidebarItem to="/items" label="Item" icon={Spool} isOpen={isOpen} />
         </nav>
       </aside>
 

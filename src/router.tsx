@@ -5,6 +5,7 @@ import Home from "@/pages/home/Home";
 import About from "@/pages/about/About";
 import MainLayout from "@/layouts/MainLayout";
 import NotFound from "@/pages/NotFound";
+import Item from "@/pages/item"
 import LoginPage from "./pages/login/Login";
 
 // Optional loader
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "items",
+        element: <Item />,
       },
     ],
   },
