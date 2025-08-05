@@ -3,8 +3,9 @@ import {
 } from "react-router";
 import Home from "@/pages/home/Home";
 import About from "@/pages/about/About";
-import RootLayout from "@/layouts/RootLayout";
+import MainLayout from "@/layouts/MainLayout";
 import NotFound from "@/pages/NotFound";
+import LoginPage from "./pages/login/Login";
 
 // Optional loader
 const homeLoader = async () => {
@@ -13,8 +14,12 @@ const homeLoader = async () => {
 
 export const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <LoginPage/>
+  },
+  {
     path: "/",
-    element: <RootLayout />,
+    element: <MainLayout />,
     errorElement: <NotFound />,
     children: [
       {
