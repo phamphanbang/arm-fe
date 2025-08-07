@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import SidebarItem from "@/components/layout/SidebarItem";
 import React from "react";
 import Header from "@/components/layout/Header";
+import { Toaster } from "sonner";
 
 export default React.memo(function MainLayout() {
   const [isOpen, setIsOpen] = useState(true);
@@ -44,6 +45,7 @@ export default React.memo(function MainLayout() {
         <div className="flex-1 p-6">
           <Outlet />
         </div>
+        <Toaster />
       </main>
     </div>
   );

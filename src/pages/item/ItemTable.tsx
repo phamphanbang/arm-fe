@@ -15,6 +15,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+import { Pencil, Trash } from "lucide-react";
 
 interface Item {
   id: number;
@@ -25,11 +26,13 @@ interface Item {
 
 interface ItemTableProps {
   items: Item[];
+  onEditClick: (item: Item) => void;
+  onDeleteClick: (item: Item) => void;
 }
 
 const pageSizes = [5, 10, 20, 50];
 
-export default function ItemTable({ items }: ItemTableProps) {
+export default function ItemTable({ items, onEditClick ,onDeleteClick}: ItemTableProps) {
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -65,10 +68,22 @@ export default function ItemTable({ items }: ItemTableProps) {
                 <TableCell>{item.category}</TableCell>
                 <TableCell>{item.price}</TableCell>
                 <TableCell className="space-x-2">
-                  <Button variant="outline" size="sm">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="bg-blue-600 hover:bg-blue-700 text-white hover:text-white font-semibold"
+                    onClick={() => onEditClick(item)}
+                  >
+                    <Pencil />
                     Edit
                   </Button>
-                  <Button variant="destructive" size="sm">
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    className="font-semibold"
+                    onClick={() => onDeleteClick(item)}
+                  >
+                    <Trash />
                     Delete
                   </Button>
                 </TableCell>
