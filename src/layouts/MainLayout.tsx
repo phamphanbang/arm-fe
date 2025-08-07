@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router";
-import { Home, Info, Spool } from "lucide-react";
+import { Home, Info, Spool, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SidebarItem from "@/components/layout/SidebarItem";
 import React from "react";
@@ -14,7 +14,7 @@ export default React.memo(function MainLayout() {
     <div className="flex min-h-screen">
       {/* Sidebar */}
       <aside
-        className={`bg-black text-white transition-all duration-300 ease-in-out ${
+        className={`bg-black text-white border-gray-300  transition-all duration-300 ease-in-out ${
           isOpen ? "w-60" : "w-16"
         }`}
       >
@@ -25,10 +25,16 @@ export default React.memo(function MainLayout() {
           <Button
             variant="ghost"
             size="icon"
-            className={`text-white ${isOpen ?? "w-full"}`}
+            className={`absolute top-4 z-20 p-1 rounded-full bg-black border border-gray-300 text-gray-300  transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:border-white ${
+              isOpen ? "left-55" : "left-11"
+            }`}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? "<" : ">"}
+            {isOpen ? (
+              <ChevronLeft className="w-4 h-4" />
+            ) : (
+              <ChevronRight className="w-4 h-4" />
+            )}
           </Button>
         </div>
 
